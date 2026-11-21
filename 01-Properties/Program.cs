@@ -1,27 +1,18 @@
 ﻿namespace ConsoleApp2
 {
-    class clsEmployee
+    class Auto_clsEmployee
     {
-        private int _ID;
-        private string _Name = string.Empty;
-
         public int ID
         {
-            get
-            {
-                return _ID = 7;
-            }
-
-
-
+            get;
+            set;
         }
 
         public string Name
         {
-            get { return _Name; }
-            set { _Name = value.ToUpper(); }
+            get;
+            set;
         }
-
 
     }
 
@@ -32,14 +23,17 @@
 
         static void Main(string[] args)
         {
-            clsEmployee Employee1 = new clsEmployee();
+            Auto_clsEmployee Employee2 = new Auto_clsEmployee();
 
 
-            Employee1.Name = "Fahad asiri";
+
+            Employee2.Name = "Mohammed ali";
+            Employee2.ID = 77289177;
 
 
-            Console.WriteLine(Employee1.ID);
-            Console.WriteLine(Employee1.Name);
+
+            Console.WriteLine(Employee2.ID);
+            Console.WriteLine(Employee2.Name);
 
         }
     }
