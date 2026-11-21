@@ -1,20 +1,32 @@
 ﻿namespace ConsoleApp2
 {
-    class Auto_clsEmployee
+
+    static class Settings
     {
-        public int ID
+        public static int DayNumber
         {
-            get;
-            set;
+            get
+            {
+                return DateTime.Today.Day;
+            }
         }
 
-        public string Name
+        public static string DayName
+        {
+            get
+            {
+                return DateTime.Today.DayOfWeek.ToString();
+            }
+        }
+
+        public static string ProjectPath
         {
             get;
             set;
         }
 
     }
+
 
     internal class Program
     {
@@ -23,17 +35,12 @@
 
         static void Main(string[] args)
         {
-            Auto_clsEmployee Employee2 = new Auto_clsEmployee();
+            Console.WriteLine(Settings.DayNumber);
+            Console.WriteLine(Settings.DayName);
 
+            Settings.ProjectPath = @"PC\C\Users\";
 
-
-            Employee2.Name = "Mohammed ali";
-            Employee2.ID = 77289177;
-
-
-
-            Console.WriteLine(Employee2.ID);
-            Console.WriteLine(Employee2.Name);
+            Console.WriteLine(Settings.ProjectPath);
 
         }
     }
