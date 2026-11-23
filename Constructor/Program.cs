@@ -9,11 +9,11 @@
 
         public int Age { get; set; }
 
-        public clsPerson()
+        public clsPerson(int Id, string Name, short Age)
         {
-            Id = -1;
-            Name = string.Empty;
-            Age = 0;
+            this.Id = Id;
+            this.Name = Name;
+            this.Age = Age;
         }
 
 
@@ -23,7 +23,7 @@
     {
         static void Main(string[] args)
         {
-            clsPerson Person1 = new clsPerson();
+            clsPerson Person1 = new clsPerson(10, "Fahad", 45);
 
 
             Console.WriteLine("ID:= {0}", Person1.Id);
