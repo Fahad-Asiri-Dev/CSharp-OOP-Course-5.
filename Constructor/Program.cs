@@ -1,63 +1,29 @@
-﻿using Constructor;
-
-namespace Constructor
+﻿namespace Constructor
 {
-    static class Settings
-    {
-        public static int DayNumber
-        {
-            get
-            {
-                return DateTime.Today.Day;
-            }
-        }
 
-
-        public static string DayName
-        {
-            get
-            {
-                return DateTime.Today.DayOfWeek.ToString();
-            }
-        }
-
-
-        public static string ProjectPath
-        {
-            get;
-            set;
-        }
-        //this is a static constructor will be called once during the program
-        static Settings()
-        {
-            ProjectPath = @"C:\MyProjects\";
-        }
-    }
-
-
-
-
-}
-internal class Program
-{
-    static void Main(string[] args)
+    class clsPerson
     {
 
-        // You cannot create an object here because class is static
-        // Settings Obj1 = new Settings();
+        public clsPerson()
+        {
+            Console.WriteLine("Constructor called.");
+        }
 
-        //
-        // Read the static properties.
-        //
-        Console.WriteLine(Settings.DayNumber);
-        Console.WriteLine(Settings.DayName);
-        //
-        // Change the value of the static bool property.
-        //
+        // destructor
+        ~clsPerson()
+        {
+            Console.WriteLine("Destructor called.");
+        }
 
-        Console.WriteLine(Settings.ProjectPath);
 
-        Console.ReadKey();
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //creates object of Person
+            clsPerson p1 = new clsPerson();
+            Console.ReadKey();
+        }
     }
 }
-
