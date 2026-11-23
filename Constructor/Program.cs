@@ -1,34 +1,58 @@
 ﻿namespace Constructor
 {
 
-    class clsPerson
+    static class Settings
     {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public int Age { get; set; }
-
-        public clsPerson(int Id, string Name, short Age)
+        public static int DayNumber
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.Age = Age;
+            get
+            {
+                return DateTime.Today.Day;
+            }
         }
 
+        public static string DayName
+        {
+            get
+            {
+                return DateTime.Today.DayOfWeek.ToString();
+            }
+        }
 
+        public static string ProjectPath
+        {
+            get;
+            set;
+        }
 
+        //this is a private constructor to prevent creating object from this class
+        //private Settings()
+        //{
+
+        //}
     }
+
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            clsPerson Person1 = new clsPerson(10, "Fahad", 45);
+            // You cannot create an object here because class has private constructor
+            // Settings Obj1 = new Settings();
 
+            //
+            // Read the static properties.
+            //
+            Console.WriteLine(Settings.DayNumber);
+            Console.WriteLine(Settings.DayName);
 
-            Console.WriteLine("ID:= {0}", Person1.Id);
-            Console.WriteLine("Name:= {0}", Person1.Name);
-            Console.WriteLine("Age:= {0}", Person1.Age);
+            //
+            // Change the value of the static bool property.
+            //
+            Settings.ProjectPath = @"C:\MyProjects\";
+            Console.WriteLine(Settings.ProjectPath);
+            Console.ReadKey();
+
 
         }
     }
