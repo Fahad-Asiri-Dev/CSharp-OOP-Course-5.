@@ -2,47 +2,28 @@
 
 namespace Inheritance
 {
-    public class clsPerson
+
+    public class Person
     {
-        public clsPerson(int Id, string FirstName, string LastName, string Title)
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public void Greet()
         {
-            this.Id = Id;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Title = Title;
+            Console.WriteLine($"Hi, my name is {Name} and I am {Age} years old.");
         }
-
-        public int Id { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Title { get; private set; }
-
-        public string FullName
-        {
-            get
-            {
-                return FirstName + ' ' + LastName;
-            }
-        }
-
     }
-    public class clsEmployee : clsPerson
+
+    public class Employee : Person
     {
-        public clsEmployee(int Id, string FirstName, string LastName, string Title
-            , float Salary, string DepartmentName) : base(Id, FirstName, LastName, Title)
+        public string Company { get; set; }
+        public decimal Salary { get; set; }
+
+
+        public void Work()
         {
-            this.Salary = Salary;
-            this.DepartmentName = DepartmentName;
+            Console.WriteLine($"I work at {Company} and earn {Salary:C} per year.");
         }
-
-        public float Salary { get; private set; }
-        public string DepartmentName { get; private set; }
-
-        public void IncreaseSalaryBy(float Amount)
-        {
-            Salary += Amount;
-        }
-
     }
 
 
@@ -51,18 +32,16 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        clsEmployee Employee1 = new clsEmployee(10, "Fahad", "Asiri", "Mr", 9000, "IT");
-        Console.WriteLine("Accessing Object 1 (Employee1):\n");
-        Console.WriteLine("ID :={0}", Employee1.Id);
-        Console.WriteLine("Title :={0}", Employee1.Title);
-        Console.WriteLine("Full Name :={0}", Employee1.FullName);
-        Console.WriteLine("Department Name :={0}", Employee1.DepartmentName);
-        Console.WriteLine("Salary :={0}", Employee1.Salary);
+        //Upcasting
+        Employee employee1 = new Employee { Name = "John", Age = 30, Company = "Acme Inc.", Salary = 50000 };
+        Person persone1 = employee1;
+        employee1.Greet();
 
-        Employee1.IncreaseSalaryBy(100);
+        //Downcasting
 
-        Console.WriteLine("Salary after increase =:{0}", Employee1.Salary);
-
+        Person person2 = new Employee { Name = "Jane", Age = 25, Company = "XYZ Corp. ", Salary = 30300 };
+        Employee employee2 = (Employee)person2;
+        employee2.Work();
 
     }
 }
