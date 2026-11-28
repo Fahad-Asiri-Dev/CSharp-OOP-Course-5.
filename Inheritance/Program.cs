@@ -4,21 +4,15 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        MyBaseClass myBaseoObj = new MyBaseClass();
-        Console.WriteLine("\nBase Object:\n");
-        myBaseoObj.MyMethod();
-        myBaseoObj.MyOtherMethod();
-
-
-        MyDerivedClass myDerivedObj = new MyDerivedClass();
-        Console.WriteLine("\nDerived Object:\n");
-        myDerivedObj.MyMethod();
-        myDerivedObj.MyOtherMethod();
-
-        MyBaseClass myDerivedObjAsBase = myDerivedObj;
-        Console.WriteLine("\nAfter Casting:\n");
-        myDerivedObjAsBase.MyMethod();
-        myDerivedObjAsBase.MyOtherMethod();
+        Doctor doctor = new Doctor();
+        doctor.Name = "Fahad";
+        doctor.Age = 30;
+        doctor.EmployeeId = 123;
+        doctor.Salary = 20000;
+        doctor.Speciality = "Cardiology";
+        doctor.Introduce();
+        doctor.Work();
+        doctor.Heal();
 
         Console.ReadKey();
 
